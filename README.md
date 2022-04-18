@@ -16,15 +16,12 @@
 
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include:
- > * Why is it important or interesting to you?
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
- > * What will be the input/output of your project? What are the features that the project provides? (Brooke: Should we take input through the keyboard? Arrow keys to move around the board, enter to select pieces and spots to move? We can display the board after every turn)
- > 
- > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
- > 
- > You also need to set up an empty project board by choosing the  “Automated kanban with review” option on Github. You should also have a Backlog and In testing columns added.
+When creating a chess game, we need to consider the graphical user interface so that the user does not need to type every single move and can easily see the board. We also want this interface to be compatible with different platforms. After researching the GUI frameworks, it seems that [Qt] (https://www.qt.io) is one of the best and most widely used. This framework should be used to handle the front end and input.
+
+Creating and implementing designs to a chess game is interesting to us because we want to explore how developing a game can lead us to making more complex games in the future. We, as a team, think chess is a game where users would need a strategy and logical thinking in order to win the game. Moreover, creating this type of game is very important to us as we would like to apply our programming skills and knowledge to design a game that is both competitive and fun for users to play. 
+
+The input will be taken from the user's mouse in order to move and select their desired piece. The output will be an updated chess board after every move so both players are able to know the state of the game. The features we plan to implement are the projection of a typical chess board, the chess game, 
+the ability to save and reload a game, and finally the ability to play against a computer.
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
  > * Create an "Epic" (note) for each feature. Place these epics in the `Backlog` column
