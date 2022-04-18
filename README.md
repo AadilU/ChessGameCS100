@@ -17,7 +17,9 @@
 
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include:
- > * Why is it important or interesting to you? (Brooke: chess games can become very complex...it would be fun if we could manage to create a fun AI to play against)
+ > * Why is it important or interesting to you?
+ > Creating and implementing designs to a chess game is interesting to us because we want to explore how developing a game can lead us to making more complex games in the future. We, as a team, think chess is a game where users would need a strategy or logical thinking in order to win the game. Moreover, creating this type of game is very important to us as we would like to apply our programming skills and knowledge to design a game that is both competitive and fun for users to play. 
+
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >   * [toolname](link) - Short description
  > * What will be the input/output of your project? What are the features that the project provides? (Brooke: Should we take input through the keyboard? Arrow keys to move around the board, enter to select pieces and spots to move? We can display the board after every turn)
