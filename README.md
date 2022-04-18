@@ -3,7 +3,7 @@
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # Chess Game
  
- > Authors: [Aadil Umar](https://github.com/AadilU), [Brooke Roberts](https://github.com/Zaralah), [Angel Ibanez](https://github.com/anglesideangel), [Steven Nguyen](https://github.com/steven1248012)
+Authors: [Aadil Umar](https://github.com/AadilU), [Brooke Roberts](https://github.com/Zaralah), [Angel Ibanez](https://github.com/anglesideangel), [Steven Nguyen](https://github.com/steven1248012)
  
  > ## Expectations
  > * Incorporate **at least one** design pattern
