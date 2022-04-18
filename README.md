@@ -16,7 +16,7 @@
 
 
 ## Project Description
-When creating a chess game, we need to consider the graphical user interface so that the user does not need to type every single move and can easily see the board. We also want this interface to be compatible with different platforms. After researching the GUI frameworks, it seems that [Qt] (https://www.qt.io) is one of the best and most widely used. This framework should be used to handle the front end and input.
+When creating a chess game, we need to consider the graphical user interface so that the user does not need to type every single move and can easily see the board. We also want this interface to be compatible with different platforms. After researching the GUI frameworks, it seems that [Qt](https://www.qt.io) is one of the best and most widely used. This framework should be used to handle the front end and input.
 
 Creating and implementing designs to a chess game is interesting to us because we want to explore how developing a game can lead us to making more complex games in the future. We, as a team, think chess is a game where users would need a strategy and logical thinking in order to win the game. Moreover, creating this type of game is very important to us as we would like to apply our programming skills and knowledge to design a game that is both competitive and fun for users to play. 
 
