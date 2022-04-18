@@ -21,10 +21,10 @@
 
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include:
- > * Why is it important or interesting to you? (chess games can become very complex...it would be fun if we could manage to create a fun AI to play against)
+ > * Why is it important or interesting to you? (Brooke: chess games can become very complex...it would be fun if we could manage to create a fun AI to play against)
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >   * [toolname](link) - Short description
- > * What will be the input/output of your project? What are the features that the project provides? (Should we take input through the keyboard? Arrow keys to move around the board, enter to select pieces and spots to move? We can display the board after every turn)
+ > * What will be the input/output of your project? What are the features that the project provides? (Brooke: Should we take input through the keyboard? Arrow keys to move around the board, enter to select pieces and spots to move? We can display the board after every turn)
  > 
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > 
