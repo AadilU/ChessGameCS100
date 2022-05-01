@@ -20,6 +20,7 @@ Creating and implementing designs to a chess game is interesting to us because w
 
 ## Class Diagram
 ![Chess Game UML](https://user-images.githubusercontent.com/102494188/166168642-aa828f73-7861-4ef9-a6eb-9a5586c59bd5.png)
+In our diagram, we have 6 classes(one for each piece type), which all inherit atributes and operations from our class "chess piece". Our class "Board", which aggregates "chess piece", will make up the chess game which is composed by our class "Sqaure". We plan on updating our diagram as implementation continues and new features/classes are thought of and added. 
 
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
