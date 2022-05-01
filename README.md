@@ -1,19 +1,6 @@
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # Chess Game
  
 Authors: [Aadil Umar](https://github.com/AadilU), [Brooke Roberts](https://github.com/Zaralah), [Angel Ibanez](https://github.com/anglesideangel), [Steven Nguyen](https://github.com/steven1248012)
- 
- > ## Expectations
- > * Incorporate **at least one** design pattern
- >   * It is recommended that you include a design pattern that we will teach this session (Composite, Strategy, or Visitor)
- > * Your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
- > * Each member of the group must actively participate in the Github Project board and reviewing commited code.
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two scrum/check-in meetings with your lab TA/reader in two different weeks in addition to the final demo.
-
 
 ## Project Description
 
