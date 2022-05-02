@@ -6,18 +6,6 @@ Authors: [Aadil Umar](https://github.com/AadilU), [Brooke Roberts](https://githu
 
 Creating and implementing designs to a chess game is interesting to us because we want to explore how developing a game can lead us to making more complex games in the future. We, as a team, think chess is a game where users would need strategy and logical thinking in order to win the game. Moreover, creating this type of game is very important to us as we would like to apply our programming skills and knowledge to design a game that is both competitive and fun for users to play. We plan on implementing our version of chess with C++ to focus on object oriented style programming and will use CMake to execute our program. The input for this game will be taken from the user's keyboard in order to move and select their desired piece, and the output will be an updated chess board after every move so both players are able to see and know the state of the game. The features we plan to implement are the projection of a typical chess board, the chess game, show the direction pieces are allowed to move, the ability to save and reload a game, and finally the ability to play against a computer.
 
- > ## Phase II
- > In addition to completing the "Class Diagram" section below, you will need to:
- > * Create an "Epic" (note) for each feature. Place these epics in the `Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Break down the "Epics" into smaller actionable user stories (i.e. smaller development tasks). Convert them into issues and assign them to team members. Place these in the `TODO` column.
- >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
- > * Schedule two check-ins using Calendly. You need to pick both time slots during your lab on week 6. Your entire team must be present for both check-ins.
- >   * The first check-in needs to be scheduled with your lab TA. During that meeting, you will discuss your project design/class diagram from phase II.
- >   * The second check-in should be scheduled with a reader. During that meeting you will discuss:
- >     * The tasks you are planning for the first sprint
- >     * How work will be divided between the team members
-
 ## Class Diagram
 ![Chess Game UML](https://user-images.githubusercontent.com/102494188/166168642-aa828f73-7861-4ef9-a6eb-9a5586c59bd5.png)
 In our diagram, we have 6 classes(one for each piece type), which all inherit atributes and operations from our class "chess piece". Our class "Board", which aggregates "chess piece", will make up the chess game which is composed by our class "Sqaure". We plan on updating our diagram as implementation continues and new features/classes are thought of and added. 
