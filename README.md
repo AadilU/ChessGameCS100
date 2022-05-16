@@ -12,7 +12,7 @@ In our diagram, we have 6 classes(one for each piece type), which all inherit at
 
 We plan to use the composite and the strategic design pattern to implement our code.
 
-We picked the composite pattern because our program, creating a chess game, has several classes that can build off of one standard class, such as our pieces. We implemented our board using the composite pattern and will implement our pieces using it. The pattern helped us write better code as it kept us from re-writing code we already implemented and kept it easier to understand.
+We picked the composite pattern because our program, creating a chess game, needed a way to implement its game board. As a group, we decided that a composite implementation would be best suited since we could use our class "square" and use it to build our chess board. The pattern made coding easier since we were able to reuse code from our "sqaure" class to make our class "chess board" which consists of 64 squares.
 
 We also plan to implement a strategy pattern in our chess game so that our algorithm for each certain piece would be much more efficient since each piece has different actions. As a team, we decided to pick this pattern so that we would not need to implement repeatable code and functionality which would cause a lot of confusion and repetitive code. Furthermore, each chess piece will inherit functions and variables from the main class.  With this strategy being implemented in our project,we will not have duplicate and unnecessary code which would allow us to detect errors in an easier manner. 
 
