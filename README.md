@@ -10,6 +10,7 @@ Creating and implementing designs to a chess game is interesting to us because w
 ![Chess Game UML](https://user-images.githubusercontent.com/102494188/166168642-aa828f73-7861-4ef9-a6eb-9a5586c59bd5.png)
 In our diagram, we have 6 classes(one for each piece type), which all inherit atributes and operations from our class "chess piece". Our class "Board", which aggregates "chess piece", will make up the chess game which is composed by our class "Sqaure". We plan on updating our diagram as implementation continues and new features/classes are thought of and added. 
 
+## Design Patterns
 We plan to use the composite and the strategic design pattern to implement our code.
 
 We picked the composite pattern because our program, creating a chess game, needed a way to implement its game board. As a group, we decided that a composite implementation would be best suited since we could use our class "square" and use it to build our chess board. The pattern made coding easier since we were able to reuse code from our "sqaure" class to make our class "chess board" which consists of 64 squares.
