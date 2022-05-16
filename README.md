@@ -16,7 +16,7 @@ We picked the composite pattern because our program, creating a chess game, need
 
 We also plan to implement a strategy pattern in our chess game so that our algorithm for each certain piece would be much more efficient since each piece has different actions. As a team, we decided to pick this pattern so that we would not need to implement repeatable code and functionality which would cause a lot of confusion and repetitive code. Furthermore, each chess piece will inherit functions and variables from the main class.  With this strategy being implemented in our project,we will not have duplicate and unnecessary code which would allow us to detect errors in an easier manner. 
 
-[Strategy Class Diagram.pdf](https://github.com/cs100/final-project-aadil-brooke-angel-steven-baas/files/8704028/Strategy.Class.Diagram.pdf)
+![Strategy Class Diagram.pdf](https://github.com/cs100/final-project-aadil-brooke-angel-steven-baas/files/8704028/Strategy.Class.Diagram.pdf)
 
 
 
