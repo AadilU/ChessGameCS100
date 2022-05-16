@@ -1,6 +1,6 @@
 # Chess Game
  
-Authors: [Aadil Umar](https://github.com/AadilU), [Brooke Roberts](https://github.com/Zaralah), [Angel Ibanez](https://github.com/anglesideangel), [Steven Nguyen](https://github.com/steven1248012)
+Authors: [Aadil Umar](https://github.com/AadilU), [Angel Ibanez](https://github.com/anglesideangel), [Steven Nguyen](https://github.com/steven1248012)
 
 ## Project Description
 
