@@ -11,7 +11,7 @@ using namespace std;
 
 class chessBoard : public square {
 private:
-    SDL_Rect board[64];
+    SDL_Rect board[8][8];
 public:
     chessBoard();
     void generateBoard();

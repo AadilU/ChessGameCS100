@@ -4,55 +4,76 @@
 chessBoard::chessBoard(){
 
     int newX = 0;
-    for(int i = 0; i<64;i++){
-        if(i%8 == 0){
-            board[i].x = 0;
-
-            newX = 0;
-        }
-        else{
-            newX += 80;
-            board[i].x = newX;
-        }
-        if(i <= 8){
-            board[i].y = 0;
-        }
-        if(i >= 8 && i < 16){
-            board[i].y = 80;
-        }
-        if(i >= 16 && i < 24){
-            board[i].y = 160;
-        }
-        if(i >= 24 && i < 32){
-            board[i].y = 240;
-        }
-        if(i >= 32 && i < 40){
-            board[i].y = 320;
-        }
-        if(i >= 40 && i < 48){
-            board[i].y = 400;
-        }
-        if(i >= 48 && i < 56){
-            board[i].y = 480;
-        }
-        if(i >= 56){
-            board[i].y = 560;
+    int newY = 0;
+    for(int i = 0; i<8;i++){
+        for(int j = 0; j<8;j++){
+            if(i == 0 && j ==0){
+                board[i][j].x = 0;
+                board[i][j].y = 0;
+            }
+            else if(i == 1 && j==0){
+                newX = 0;
+                newY += 80;
+                board[i][j].x = 0;
+                board[i][j].y = 80;
+            }
+            else if(i == 2 && j==0){
+                newX = 0;
+                newY += 80;
+                board[i][j].x = 0;
+                board[i][j].y = 160;
+            }
+            else if(i == 3 && j==0){
+                newX = 0;
+                newY += 80;
+                board[i][j].x = 0;
+                board[i][j].y = 240;
+            }
+            else if(i == 4 && j==0){
+                newX = 0;
+                newY += 80;
+                board[i][j].x = 0;
+                board[i][j].y = 320;
+            }
+            else if(i == 5 && j==0){
+                newX = 0;
+                newY += 80;
+                board[i][j].x = 0;
+                board[i][j].y = 400;
+            }
+            else if(i == 6 && j==0){
+                newX = 0;
+                newY += 80;
+                board[i][j].x = 0;
+                board[i][j].y = 480;
+            }
+            else if(i == 7 && j==0){
+                newX = 0;
+                newY += 80;
+                board[i][j].x = 0;
+                board[i][j].y = 560;
+            }
+            else{
+                newX +=80;
+                board[i][j].x = newX;
+                board[i][j].y = newY;
+                
+            }
         }
     }
 }
 
 
 void chessBoard::generateBoard(){
-    int index = 0;
     for(int i = 0; i<8; i++){
-        for(int j =0; j<8; j++){
+        for(int j = 0; j<8; j++){
             if((i+j)%2==0){
-                create_WhiteSquare(board[index]);
+                create_WhiteSquare(board[i][j]);
             }
             else{
-                create_BlueSquare(board[index]);
+                //cout << "works";
+                create_BlueSquare(board[i][j]);
             }
-            index++;
         }
     }
 }
