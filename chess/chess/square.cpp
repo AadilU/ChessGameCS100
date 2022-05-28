@@ -2,7 +2,7 @@
 #include "square.hpp"
 
 square::square(){
-    window = SDL_CreateWindow("Chess", 0, 0, 640, 640, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Chess", 400, 125, 640, 640, SDL_WINDOW_SHOWN);
     render = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     width = 80;
     height = 80;
