@@ -1,30 +1,33 @@
-#ifndef PIECE_H
-#define PIECE_H
+#ifndef piece_h
+#define piece_h
 
-#include "square.hpp"
+#include <SDL2/SDL.h>
 
-class Piece {
+class Piece{
 protected:
-	bool white;
-	bool alive;
-	square* currSquare;
+    bool white;
+    bool alive;
+    int posX;
+    int posY;
+    
 public:
-	Piece(bool isWhite) {
-		white = isWhite;
-		alive = true;
-	};
+    SDL_Rect pieceRect;
+    const char* image_path;
+    void kill() {
+        alive = false;
+    }
 
-	void kill() {
-		alive = false;
-	}
+    bool isDead() {
+        return (!alive);
+    }
 
-	bool isDead() {
-		return (!alive);
-	}
-
-	bool isWhite() {
-		return white;
-	}
-	virtual bool canMove(square* moveSquare) = 0;
+    bool isWhite() {
+        return white;
+    }
+    //virtual bool canMove(square* moveSquare) = 0;
+    
+    virtual void renderPiece(SDL_Rect newPiece) = 0;
+    
 };
-#endif
+
+#endif /* piece_h */
