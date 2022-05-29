@@ -1,14 +1,14 @@
 
-#include "pawn.hpp"
+#include "bishop.hpp"
 #include <iostream>
 
-pawn::pawn(bool w,int pX, int pY){
-    name = "pawn";
+bishop::bishop(bool w,int pX, int pY){
+    name = "bishop";
 
     if(w)
-        image_path = "images/whitePawn.bpm";
+        image_path = "images/whiteBishop.bpm";
     else
-        image_path = "images/blackPawn.bpm";
+        image_path = "images/blackBishop.bpm";
     
     posX = pX;
     posY = pY;

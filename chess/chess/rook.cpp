@@ -1,14 +1,14 @@
 
-#include "pawn.hpp"
+#include "rook.hpp"
 #include <iostream>
 
-pawn::pawn(bool w,int pX, int pY){
-    name = "pawn";
+rook::rook(bool w,int pX, int pY){
+    name = "rook";
 
     if(w)
-        image_path = "images/whitePawn.bpm";
+        image_path = "images/whiteRook.bpm";
     else
-        image_path = "images/blackPawn.bpm";
+        image_path = "images/blackRook.bpm";
     
     posX = pX;
     posY = pY;
