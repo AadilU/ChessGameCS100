@@ -15,8 +15,6 @@ public:
     SDL_Rect pieceRect;
     const char* image_path;
     std::string name;
-    int posX;
-    int posY;
 
     void kill() {
         alive = false;
