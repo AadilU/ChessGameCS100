@@ -2,6 +2,7 @@
 #define piece_h
 
 #include <SDL2/SDL.h>
+#include <string>
 
 class Piece{
 protected:
@@ -13,6 +14,10 @@ public:
     int posY;
     SDL_Rect pieceRect;
     const char* image_path;
+    std::string name;
+    int posX;
+    int posY;
+
     void kill() {
         alive = false;
     }
@@ -26,8 +31,11 @@ public:
     }
     //virtual bool canMove(square* moveSquare) = 0;
     
-    virtual void movePiece(SDL_Rect newPiece) = 0;
-    
+    void movePiece(SDL_Rect newPiece) {
+    pieceRect.x = (posX*80)+10;
+    pieceRect.y = (posY*80)+10;
+    }
+
 };
 
 #endif /* piece_h */
