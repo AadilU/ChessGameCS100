@@ -91,17 +91,26 @@ void Window::create_window(){
                     SDL_GetMouseState(&checkX, &checkY);
                     Piece* attackedPiece = game->getAttackedPiece((checkX-10)/80, (checkY-10)/80);
                     if(attackedPiece != nullptr) {
-                        attackedPiece->posX = -10;
-                        attackedPiece->posY = -10;
-                        attackedPiece->movePiece(attackedPiece->pieceRect);
+                        if(attackedPiece->isWhite() != game->whiteTurn) {
+                            attackedPiece->posX = -10;
+                            attackedPiece->posY = -10;
+                            attackedPiece->movePiece(attackedPiece->pieceRect);
+                        }
+                        else
+                            {
+                                attackedPiece = nullptr;
+                                selectedPiece = nullptr;
+                            }
                     }
 
-                    selectedPiece->posX = ((checkX)-10)/80;
-                    selectedPiece->posY = ((checkY)-10)/80;
-                    selectedPiece->movePiece(selectedPiece->pieceRect);
-                    if(!(selectedPiece->posX == origPieceX && selectedPiece->posY == origPieceY))
-                        game->whiteTurn = !game->whiteTurn;
-                    selectedPiece = nullptr;
+                    if(selectedPiece != nullptr) {
+                        selectedPiece->posX = ((checkX)-10)/80;
+                        selectedPiece->posY = ((checkY)-10)/80;
+                        selectedPiece->movePiece(selectedPiece->pieceRect);
+                        if(!(selectedPiece->posX == origPieceX && selectedPiece->posY == origPieceY))
+                            game->whiteTurn = !game->whiteTurn;
+                        selectedPiece = nullptr;
+                    }
                 }
             }
             if(event.type == SDL_MOUSEBUTTONUP){
