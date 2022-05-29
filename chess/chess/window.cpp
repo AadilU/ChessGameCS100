@@ -13,6 +13,8 @@ void Window::create_window(){
     bool gameIsRunning = true;
     
     bool pieceSelected = false;
+    int origPieceX = -1;
+    int origPieceY = -1;
     
     //error check
     if(SDL_Init(SDL_INIT_VIDEO) < 0){
@@ -90,17 +92,23 @@ void Window::create_window(){
                     selectedPiece->posX = ((selectedPiece->pieceRect.x)-10)/80;
                     selectedPiece->posY = ((selectedPiece->pieceRect.y)-10)/80;
                     selectedPiece->movePiece(selectedPiece->pieceRect);
+                    if(!(selectedPiece->posX == origPieceX && selectedPiece->posY == origPieceY))
+                        game->whiteTurn = !game->whiteTurn;
                     selectedPiece = nullptr;
-                    game->whiteTurn = !game->whiteTurn;
                 }
             }
             if(event.type == SDL_MOUSEBUTTONUP){
                 
                 if(selectedPiece != nullptr) {
                     pieceSelected = true;
+                    origPieceX = selectedPiece->posX;
+                    origPieceY = selectedPiece->posY;
                 }
-                else
+                else {
                     pieceSelected = false;
+                    origPieceX = -1;
+                    origPieceY = -1;
+                }
             }
         }
 
