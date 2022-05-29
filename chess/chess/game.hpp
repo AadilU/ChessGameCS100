@@ -5,12 +5,12 @@
 
 class Game {
     private:
-    
     public:
         Piece* pieceList[8][8] = {nullptr};
         bool whiteTurn = true;
         Game();
         ~Game();
+        Piece* getPieceFromPosition(int x, int y);
 
 };
 #endif

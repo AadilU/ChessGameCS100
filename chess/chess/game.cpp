@@ -34,3 +34,19 @@ Game::Game() {
     pieceList[4][0] = new king(false, 4, 0);
     pieceList[4][7] = new king(true, 4, 7);
 }
+
+Piece* Game::getPieceFromPosition(int x, int y) {
+    for(int i = 0;i < 8;i++) {
+        for(int j = 0;j < 8;j++) {
+            if(pieceList[i][j] != nullptr) {
+                if(this->pieceList[i][j]->posX == x && this->pieceList[i][j]->posY == y) {
+                    if(this->pieceList[i][j]->isWhite() == whiteTurn)
+                        return this->pieceList[i][j];
+                    else
+                        return nullptr;
+                }
+            }
+        }
+    }
+    return nullptr;
+}

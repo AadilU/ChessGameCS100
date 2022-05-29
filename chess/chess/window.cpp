@@ -5,13 +5,14 @@
 #include "vector"
 #include "game.hpp"
 #include <string>
+#include <iostream>
 
 void Window::create_window(){
     SDL_Window* wind = getWind();
     
     bool gameIsRunning = true;
     
-
+    bool pieceSelected = false;
     
     //error check
     if(SDL_Init(SDL_INIT_VIDEO) < 0){
@@ -64,6 +65,8 @@ void Window::create_window(){
 
     Piece* wKnight = new knight(true, 1, 0);
 
+
+    Piece* selectedPiece = nullptr;
     while(gameIsRunning){
         SDL_Event event;
         while(SDL_PollEvent(&event)){
@@ -71,7 +74,36 @@ void Window::create_window(){
                 gameIsRunning = false;
                 std::cout << "game quit" << std::endl;
             }
+            if(event.type == SDL_MOUSEBUTTONDOWN){
+                if(!pieceSelected) {
+                int checkX = 0;
+                int checkY = 0;
+                int index;
+                SDL_GetMouseState(&checkX,&checkY);
+                checkX = (checkX-10)/80;
+                checkY = (checkY-10)/80;
+                selectedPiece = game->getPieceFromPosition(checkX, checkY);
+                }
+                
+                if(selectedPiece != nullptr && pieceSelected) {
+                    SDL_GetMouseState(&(selectedPiece)->pieceRect.x,&(selectedPiece)->pieceRect.y);
+                    selectedPiece->posX = ((selectedPiece->pieceRect.x)-10)/80;
+                    selectedPiece->posY = ((selectedPiece->pieceRect.y)-10)/80;
+                    selectedPiece->movePiece(selectedPiece->pieceRect);
+                    selectedPiece = nullptr;
+                    game->whiteTurn = !game->whiteTurn;
+                }
+            }
+            if(event.type == SDL_MOUSEBUTTONUP){
+                
+                if(selectedPiece != nullptr) {
+                    pieceSelected = true;
+                }
+                else
+                    pieceSelected = false;
+            }
         }
+
         clearRender();
         generateBoard();
 
