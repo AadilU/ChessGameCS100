@@ -11,6 +11,7 @@ class Game {
         Game();
         ~Game();
         Piece* getPieceFromPosition(int x, int y);
+        Piece* getAttackedPiece(int x, int y);
 
 };
 #endif

@@ -50,3 +50,16 @@ Piece* Game::getPieceFromPosition(int x, int y) {
     }
     return nullptr;
 }
+
+Piece* Game::getAttackedPiece(int x, int y) {
+    for(int i = 0;i < 8;i++) {
+        for(int j = 0;j < 8;j++) {
+            if(pieceList[i][j] != nullptr) {
+                if(this->pieceList[i][j]->posX == x && this->pieceList[i][j]->posY == y) {
+                    return this->pieceList[i][j];
+                }
+            }
+        }
+    }
+    return nullptr;
+}
