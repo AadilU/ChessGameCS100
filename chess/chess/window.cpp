@@ -22,11 +22,11 @@ void Window::create_window(){
         std::cout << "SDL video is ready to go " << std::endl;
     }
 
-    const char* image_path = "images/whitePawn.bmp";
+    const char* image_path = "project/finalProj/chess/chess/images/whitePawn.bmp";
     SDL_Surface* surface = SDL_LoadBMP(image_path);
     SDL_Texture* wPawnTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
-    surface = SDL_LoadBMP("images/blackPawn.bmp");
+    surface = SDL_LoadBMP("project/finalProj/chess/chess/images/blackPawn.bmp");
     SDL_Texture* bPawnTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
     surface = SDL_LoadBMP("images/whiteKnight.bmp");

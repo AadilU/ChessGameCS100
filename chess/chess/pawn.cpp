@@ -19,3 +19,10 @@ pawn::pawn(bool w,int pX, int pY){
     pieceRect.w = 60;
     pieceRect.h = 60;
 }
+void pawn::movePiece(SDL_Rect newPiece){
+    
+    pieceRect.x = (posX*80)+10;
+    pieceRect.y = (posY*80)+10;
+
+    //std::cout << "I am called";
+}
