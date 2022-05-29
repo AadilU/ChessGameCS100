@@ -7,10 +7,10 @@ class Piece{
 protected:
     bool white;
     bool alive;
-    int posX;
-    int posY;
     
 public:
+    int posX;
+    int posY;
     SDL_Rect pieceRect;
     const char* image_path;
     void kill() {
@@ -26,7 +26,7 @@ public:
     }
     //virtual bool canMove(square* moveSquare) = 0;
     
-    virtual void renderPiece(SDL_Rect newPiece) = 0;
+    virtual void movePiece(SDL_Rect newPiece) = 0;
     
 };
 
