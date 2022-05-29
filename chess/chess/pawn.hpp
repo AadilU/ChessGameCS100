@@ -13,6 +13,8 @@
 class pawn : public Piece{
 public:
     pawn(bool isWhite,int pX, int pY);
+    //virtual bool canMove(square* moveSquare) = 0;
+    void movePiece(SDL_Rect rendPiece);
 };
 
 #endif /* pawn_hpp */

@@ -10,11 +10,11 @@ protected:
     bool alive;
     
 public:
+    int posX;
+    int posY;
     SDL_Rect pieceRect;
     const char* image_path;
     std::string name;
-    int posX;
-    int posY;
 
     void kill() {
         alive = false;
@@ -33,7 +33,7 @@ public:
     pieceRect.x = (posX*80)+10;
     pieceRect.y = (posY*80)+10;
     }
-    
+
 };
 
 #endif /* piece_h */
