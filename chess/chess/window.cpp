@@ -24,41 +24,41 @@ void Window::create_window(){
         std::cout << "SDL video is ready to go " << std::endl;
     }
 
-    const char* image_path = "project/finalProj/chess/chess/images/whitePawn.bmp";
+    const char* image_path = "images/whitePawn.bmp";
     SDL_Surface* surface = SDL_LoadBMP(image_path);
     SDL_Texture* wPawnTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
-    surface = SDL_LoadBMP("project/finalProj/chess/chess/images/blackPawn.bmp");
+    surface = SDL_LoadBMP("images/blackPawn.bmp");
     SDL_Texture* bPawnTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
-    surface = SDL_LoadBMP("project/finalProj/chess/chess/images/whiteKnight.bmp");
+    surface = SDL_LoadBMP("images/whiteKnight.bmp");
     SDL_Texture* wKnightTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
-    surface = SDL_LoadBMP("project/finalProj/chess/chess/images/blackKnight.bmp");
+    surface = SDL_LoadBMP("images/blackKnight.bmp");
     SDL_Texture* bKnightTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
-    surface = SDL_LoadBMP("project/finalProj/chess/chess/images/whiteRook.bmp");
+    surface = SDL_LoadBMP("images/whiteRook.bmp");
     SDL_Texture* wRookTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
-    surface = SDL_LoadBMP("project/finalProj/chess/chess/images/blackRook.bmp");
+    surface = SDL_LoadBMP("images/blackRook.bmp");
     SDL_Texture* bRookTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
-    surface = SDL_LoadBMP("project/finalProj/chess/chess/images/whiteBishop.bmp");
+    surface = SDL_LoadBMP("images/whiteBishop.bmp");
     SDL_Texture* wBishopTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
-    surface = SDL_LoadBMP("project/finalProj/chess/chess/images/blackBishop.bmp");
+    surface = SDL_LoadBMP("images/blackBishop.bmp");
     SDL_Texture* bBishopTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
-    surface = SDL_LoadBMP("project/finalProj/chess/chess/images/whiteQueen.bmp");
+    surface = SDL_LoadBMP("images/whiteQueen.bmp");
     SDL_Texture* wQueenTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
-    surface = SDL_LoadBMP("project/finalProj/chess/chess/images/blackQueen.bmp");
+    surface = SDL_LoadBMP("images/blackQueen.bmp");
     SDL_Texture* bQueenTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
-    surface = SDL_LoadBMP("project/finalProj/chess/chess/images/whiteKing.bmp");
+    surface = SDL_LoadBMP("images/whiteKing.bmp");
     SDL_Texture* wKingTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
-    surface = SDL_LoadBMP("project/finalProj/chess/chess/images/blackKing.bmp");
+    surface = SDL_LoadBMP("images/blackKing.bmp");
     SDL_Texture* bKingTexture = SDL_CreateTextureFromSurface(getRend(), surface);
 
     SDL_FreeSurface(surface);
@@ -89,17 +89,26 @@ void Window::create_window(){
                     SDL_GetMouseState(&checkX, &checkY);
                     Piece* attackedPiece = game->getAttackedPiece((checkX-10)/80, (checkY-10)/80);
                     if(attackedPiece != nullptr) {
-                        attackedPiece->posX = -10;
-                        attackedPiece->posY = -10;
-                        attackedPiece->movePiece(attackedPiece->pieceRect);
+                        if(attackedPiece->isWhite() != game->whiteTurn) {
+                            attackedPiece->posX = -10;
+                            attackedPiece->posY = -10;
+                            attackedPiece->movePiece(attackedPiece->pieceRect);
+                        }
+                        else
+                            {
+                                attackedPiece = nullptr;
+                                selectedPiece = nullptr;
+                            }
                     }
 
-                    selectedPiece->posX = ((checkX)-10)/80;
-                    selectedPiece->posY = ((checkY)-10)/80;
-                    selectedPiece->movePiece(selectedPiece->pieceRect);
-                    if(!(selectedPiece->posX == origPieceX && selectedPiece->posY == origPieceY))
-                        game->whiteTurn = !game->whiteTurn;
-                    selectedPiece = nullptr;
+                    if(selectedPiece != nullptr) {
+                        selectedPiece->posX = ((checkX)-10)/80;
+                        selectedPiece->posY = ((checkY)-10)/80;
+                        selectedPiece->movePiece(selectedPiece->pieceRect);
+                        if(!(selectedPiece->posX == origPieceX && selectedPiece->posY == origPieceY))
+                            game->whiteTurn = !game->whiteTurn;
+                        selectedPiece = nullptr;
+                    }
                 }
             }
             if(event.type == SDL_MOUSEBUTTONUP){
