@@ -26,3 +26,39 @@ void pawn::movePiece(SDL_Rect newPiece){
 
     //std::cout << "I am called";
 }
+
+std::vector<std::pair<int, int>> pawn::possibleMoves() {
+    int x = posX;
+    int y = posY;
+
+    std::cout << x << endl;
+    std::cout << y << endl;
+
+    std::vector<std::pair<int, int>> moves;
+
+    for(int i = 0;i < 8;i++) {
+        for(int j = 0;j < 8;j++) {
+            if(firstMove) {
+                if(i == x) {
+                    if(((j - y) > -3) && ((j - y) <= 0)) {
+                        moves.push_back(std::make_pair(i, j));
+                    }
+                }
+            }
+            else {
+                if(i == x) {
+                    if(((j - y) > -2) && ((j - y) <= 0)) {
+                        moves.push_back(std::make_pair(i, j));
+                    }
+                }
+            }
+        }
+    }
+
+    std::cout << "Test" << endl;
+
+    std::cout << std::get<0>(moves.at(0));
+    return moves;
+}
+
+

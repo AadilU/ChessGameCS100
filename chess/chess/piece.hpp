@@ -4,6 +4,8 @@
 #include <SDL2/SDL.h>
 #include <string>
 
+#include <vector>
+
 class Piece{
 protected:
     bool white;
@@ -27,7 +29,8 @@ public:
     bool isWhite() {
         return white;
     }
-    //virtual bool canMove(square* moveSquare) = 0;
+
+    virtual std::vector<std::pair<int, int>> possibleMoves() = 0;
     
     void movePiece(SDL_Rect newPiece) {
     pieceRect.x = (posX*80)+10;
