@@ -2,7 +2,6 @@
 #include "piece.hpp"
 #include "pawn.hpp"
 #include "knight.hpp"
-#include "vector"
 #include "game.hpp"
 #include <string>
 #include <iostream>
@@ -15,6 +14,8 @@ void Window::create_window(){
     bool pieceSelected = false;
     int origPieceX = -1;
     int origPieceY = -1;
+
+    std::vector<std::pair<int, int>> possibleMoves;
     
     //error check
     if(SDL_Init(SDL_INIT_VIDEO) < 0){
@@ -81,6 +82,8 @@ void Window::create_window(){
                 checkX = (checkX-10)/80;
                 checkY = (checkY-10)/80;
                 selectedPiece = game->getPieceFromPosition(checkX, checkY);
+                possibleMoves.clear();
+
                 }
                 
                 if(selectedPiece != nullptr && pieceSelected) {

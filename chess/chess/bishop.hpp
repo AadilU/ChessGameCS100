@@ -9,11 +9,12 @@
 #include "piece.hpp"
 #include "square.hpp"
 #include "chessBoard.hpp"
+#include <vector>
 
 class bishop : public Piece{
 public:
     bishop(bool isWhite,int pX, int pY);
-    //virtual bool canMove(square* moveSquare) = 0;
+    std::vector<std::pair<int, int>> possibleMoves();
 };
 
 #endif /* pawn_hpp */

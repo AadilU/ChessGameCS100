@@ -19,3 +19,7 @@ rook::rook(bool w,int pX, int pY){
     pieceRect.w = 60;
     pieceRect.h = 60;
 }
+
+std::vector<std::pair<int, int>> rook::possibleMoves() {
+    
+}

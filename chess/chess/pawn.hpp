@@ -9,11 +9,14 @@
 #include "piece.hpp"
 #include "square.hpp"
 #include "chessBoard.hpp"
+#include <vector>
 
 class pawn : public Piece{
+private:
+    bool firstMove = true;
 public:
-    pawn(bool isWhite,int pX, int pY);
-    //virtual bool canMove(square* moveSquare) = 0;
+    pawn(bool isWhite, int pX, int pY);
+    std::vector<std::pair<int, int>> possibleMoves();
     void movePiece(SDL_Rect rendPiece);
 };
 
