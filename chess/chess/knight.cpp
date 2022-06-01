@@ -1,6 +1,7 @@
 
 #include "knight.hpp"
 #include <iostream>
+#include "game.hpp"
 
 knight::knight(bool w,int pX, int pY){
     name = "knight";
@@ -20,7 +21,7 @@ knight::knight(bool w,int pX, int pY){
     pieceRect.h = 60;
 }
 
-std::vector<std::pair<int, int>> knight::possibleMoves(bool w) {
+std::vector<std::pair<int, int>> knight::possibleMoves(bool w, Game* game) {
     std::vector<std::pair<int, int>> moves;
     return moves;
 

@@ -1,6 +1,7 @@
 
 #include "bishop.hpp"
 #include <iostream>
+#include "game.hpp"
 
 bishop::bishop(bool w,int pX, int pY){
     name = "bishop";
@@ -20,7 +21,7 @@ bishop::bishop(bool w,int pX, int pY){
     pieceRect.h = 60;
 }
 
-std::vector<std::pair<int, int>> bishop::possibleMoves(bool w) {
+std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game) {
     std::vector<std::pair<int, int>> moves;
     return moves;
 }

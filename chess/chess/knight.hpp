@@ -10,11 +10,12 @@
 #include "square.hpp"
 #include "chessBoard.hpp"
 #include <vector>
+#include "game.hpp"
 
 class knight : public Piece{
 public:
     knight(bool isWhite,int pX, int pY);
-    std::vector<std::pair<int, int>> possibleMoves(bool w);
+    std::vector<std::pair<int, int>> possibleMoves(bool w, Game* game);
 };
 
 #endif /* pawn_hpp */
