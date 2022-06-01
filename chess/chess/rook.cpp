@@ -1,5 +1,6 @@
 
 #include "rook.hpp"
+#include "game.hpp"
 #include <iostream>
 
 rook::rook(bool w,int pX, int pY){
@@ -20,7 +21,7 @@ rook::rook(bool w,int pX, int pY){
     pieceRect.h = 60;
 }
 
-std::vector<std::pair<int, int>> rook::possibleMoves(bool w) {
+std::vector<std::pair<int, int>> rook::possibleMoves(bool w, Game* game) {
     std::vector<std::pair<int, int>> moves;
     return moves;
 

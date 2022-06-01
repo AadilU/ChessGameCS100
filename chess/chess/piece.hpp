@@ -7,6 +7,8 @@
 #include <vector>
 #include <iostream>
 
+class Game;
+
 class Piece{
 protected:
     bool white;
@@ -35,7 +37,7 @@ public:
     virtual ~Piece() = default;
 
 
-    virtual std::vector<std::pair<int, int>> possibleMoves(bool w) = 0;
+    virtual std::vector<std::pair<int, int>> possibleMoves(bool w, Game* game) = 0;
     
     void movePiece(SDL_Rect newPiece) {
     pieceRect.x = (posX*80)+10;

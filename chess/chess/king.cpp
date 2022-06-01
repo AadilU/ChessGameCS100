@@ -1,6 +1,7 @@
 
 #include "king.hpp"
 #include <iostream>
+#include "game.hpp"
 
 king::king(bool w,int pX, int pY){
     name = "king";
@@ -20,7 +21,7 @@ king::king(bool w,int pX, int pY){
     pieceRect.h = 60;
 }
 
-std::vector<std::pair<int, int>> king::possibleMoves(bool w) {
+std::vector<std::pair<int, int>> king::possibleMoves(bool w, Game* game) {
     std::vector<std::pair<int, int>> moves;
     return moves;
 

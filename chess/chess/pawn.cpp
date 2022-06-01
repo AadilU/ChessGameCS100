@@ -24,7 +24,7 @@ void pawn::movePiece(SDL_Rect newPiece){
     pieceRect.y = (posY*80)+10;
 }
 
-std::vector<std::pair<int, int>> pawn::possibleMoves(bool w) {
+std::vector<std::pair<int, int>> pawn::possibleMoves(bool w, Game* game) {
     int x = posX;
     int y = posY;
 
@@ -37,19 +37,27 @@ std::vector<std::pair<int, int>> pawn::possibleMoves(bool w) {
             for(int j = 0;j < 8;j++) {
                 if(firstMove) {
                     if(i == x) {
-                        if(((j - y) > -3) && ((j - y) <= 0)) {
-                            moves.push_back(std::make_pair(i, j));
+                        if(((j - y) > -3) && ((j - y) < 0)) {
+                                if(game->getAttackedPiece(i, j) == nullptr && game->getAttackedPiece(x, y - 1) == nullptr)
+                                    moves.push_back(std::make_pair(i, j));
                         }
                     }
                 }
                 else {
                     if(i == x) {
                         if(((j - y) > -2) && ((j - y) <= 0)) {
-                            moves.push_back(std::make_pair(i, j));
+                            if(game->getAttackedPiece(i, j) == nullptr && game->getAttackedPiece(x, y - 1) == nullptr)
+                                moves.push_back(std::make_pair(i, j));
                         }
                     }
                 }
             }
+        }
+        if(game->getAttackedPiece(x + 1, y - 1) != nullptr) {
+            moves.push_back(std::make_pair(x + 1, y - 1));
+        }
+        if(game->getAttackedPiece(x - 1, y - 1) != nullptr) {
+            moves.push_back(std::make_pair(x - 1, y - 1));
         }
     }
     else {
@@ -58,18 +66,26 @@ std::vector<std::pair<int, int>> pawn::possibleMoves(bool w) {
                 if(firstMove) {
                     if(i == x) {
                         if(((j - y) < 3) && ((j - y) >= 0)) {
-                            moves.push_back(std::make_pair(i, j));
+                            if(game->getAttackedPiece(i, j) == nullptr && game->getAttackedPiece(x, y + 1) == nullptr)
+                                    moves.push_back(std::make_pair(i, j));
                         }
                     }
                 }
                 else {
                     if(i == x) {
                         if(((j - y) < 2) && ((j - y) >= 0)) {
-                            moves.push_back(std::make_pair(i, j));
+                            if(game->getAttackedPiece(i, j) == nullptr && game->getAttackedPiece(x, y + 1) == nullptr)
+                                    moves.push_back(std::make_pair(i, j));
                         }
                     }
                 }
             }
+        }
+        if(game->getAttackedPiece(x + 1, y + 1) != nullptr) {
+            moves.push_back(std::make_pair(x + 1, y + 1));
+        }
+        if(game->getAttackedPiece(x - 1, y + 1) != nullptr) {
+            moves.push_back(std::make_pair(x - 1, y + 1));
         }
     }
 
