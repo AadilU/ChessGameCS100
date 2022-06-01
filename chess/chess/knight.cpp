@@ -21,5 +21,7 @@ knight::knight(bool w,int pX, int pY){
 }
 
 std::vector<std::pair<int, int>> knight::possibleMoves(bool w) {
-    
+    std::vector<std::pair<int, int>> moves;
+    return moves;
+
 }

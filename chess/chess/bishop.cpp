@@ -21,5 +21,6 @@ bishop::bishop(bool w,int pX, int pY){
 }
 
 std::vector<std::pair<int, int>> bishop::possibleMoves(bool w) {
-    
+    std::vector<std::pair<int, int>> moves;
+    return moves;
 }

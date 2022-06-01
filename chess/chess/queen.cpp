@@ -21,5 +21,7 @@ queen::queen(bool w,int pX, int pY){
 }
 
 std::vector<std::pair<int, int>> queen::possibleMoves(bool w) {
-    
+    std::vector<std::pair<int, int>> moves;
+    return moves;
+
 }
