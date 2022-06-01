@@ -14,7 +14,7 @@
 class bishop : public Piece{
 public:
     bishop(bool isWhite,int pX, int pY);
-    std::vector<std::pair<int, int>> possibleMoves();
+    std::vector<std::pair<int, int>> possibleMoves(bool w);
 };
 
 #endif /* pawn_hpp */

@@ -20,6 +20,6 @@ rook::rook(bool w,int pX, int pY){
     pieceRect.h = 60;
 }
 
-std::vector<std::pair<int, int>> rook::possibleMoves() {
+std::vector<std::pair<int, int>> rook::possibleMoves(bool w) {
     
 }

@@ -20,6 +20,6 @@ queen::queen(bool w,int pX, int pY){
     pieceRect.h = 60;
 }
 
-std::vector<std::pair<int, int>> queen::possibleMoves() {
+std::vector<std::pair<int, int>> queen::possibleMoves(bool w) {
     
 }

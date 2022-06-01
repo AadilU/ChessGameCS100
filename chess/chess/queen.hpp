@@ -14,7 +14,7 @@
 class queen : public Piece{
 public:
     queen(bool isWhite,int pX, int pY);
-    std::vector<std::pair<int, int>> possibleMoves();
+    std::vector<std::pair<int, int>> possibleMoves(bool w);
 };
 
 #endif /* pawn_hpp */
