@@ -20,6 +20,6 @@ bishop::bishop(bool w,int pX, int pY){
     pieceRect.h = 60;
 }
 
-std::vector<std::pair<int, int>> bishop::possibleMoves() {
+std::vector<std::pair<int, int>> bishop::possibleMoves(bool w) {
     
 }

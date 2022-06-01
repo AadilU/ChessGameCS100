@@ -5,6 +5,7 @@
 #include <string>
 
 #include <vector>
+#include <iostream>
 
 class Piece{
 protected:
@@ -12,6 +13,7 @@ protected:
     bool alive;
     
 public:
+    bool firstMove = true;
     int posX;
     int posY;
     SDL_Rect pieceRect;
@@ -30,11 +32,17 @@ public:
         return white;
     }
 
-    virtual std::vector<std::pair<int, int>> possibleMoves() = 0;
+    virtual ~Piece() = default;
+
+
+    virtual std::vector<std::pair<int, int>> possibleMoves(bool w) = 0;
     
     void movePiece(SDL_Rect newPiece) {
     pieceRect.x = (posX*80)+10;
     pieceRect.y = (posY*80)+10;
+
+    this->firstMove = false;
+
     }
 
 };

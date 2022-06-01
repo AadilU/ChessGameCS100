@@ -5,6 +5,7 @@
 #include "game.hpp"
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 void Window::create_window(){
     SDL_Window* wind = getWind();
@@ -15,7 +16,7 @@ void Window::create_window(){
     int origPieceX = -1;
     int origPieceY = -1;
 
-    std::vector<std::pair<int, int>> possibleMoves;
+    std::vector<std::pair<int, int>> possibleMovesList;
     
     //error check
     if(SDL_Init(SDL_INIT_VIDEO) < 0){
@@ -73,6 +74,7 @@ void Window::create_window(){
             if(event.type == SDL_QUIT){
                 gameIsRunning = false;
                 std::cout << "game quit" << std::endl;
+                delete game;
             }
             if(event.type == SDL_MOUSEBUTTONDOWN){
                 if(!pieceSelected) {
@@ -82,8 +84,9 @@ void Window::create_window(){
                 checkX = (checkX-10)/80;
                 checkY = (checkY-10)/80;
                 selectedPiece = game->getPieceFromPosition(checkX, checkY);
-                possibleMoves.clear();
-
+                possibleMovesList.clear();
+                if(selectedPiece != nullptr)
+                    possibleMovesList = selectedPiece->possibleMoves(selectedPiece->isWhite());
                 }
                 
                 if(selectedPiece != nullptr && pieceSelected) {
@@ -91,6 +94,14 @@ void Window::create_window(){
                     int checkY = 0;
                     SDL_GetMouseState(&checkX, &checkY);
                     Piece* attackedPiece = game->getAttackedPiece((checkX-10)/80, (checkY-10)/80);
+
+                    std::pair<int, int> move = std::make_pair((checkX-10)/80, (checkY-10)/80);
+
+                    if(std::find(possibleMovesList.begin(), possibleMovesList.end(), move) == possibleMovesList.end()) {
+                        attackedPiece = nullptr;
+                        selectedPiece = nullptr;
+                    }
+
                     if(attackedPiece != nullptr) {
                         if(attackedPiece->isWhite() != game->whiteTurn) {
                             attackedPiece->posX = -10;
@@ -108,6 +119,9 @@ void Window::create_window(){
                         selectedPiece->posX = ((checkX)-10)/80;
                         selectedPiece->posY = ((checkY)-10)/80;
                         selectedPiece->movePiece(selectedPiece->pieceRect);
+
+                        selectedPiece->firstMove = false;
+
                         if(!(selectedPiece->posX == origPieceX && selectedPiece->posY == origPieceY))
                             game->whiteTurn = !game->whiteTurn;
                         selectedPiece = nullptr;
