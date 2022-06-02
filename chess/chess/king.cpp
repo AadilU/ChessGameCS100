@@ -22,7 +22,26 @@ king::king(bool w,int pX, int pY){
 }
 
 std::vector<std::pair<int, int>> king::possibleMoves(bool w, Game* game) {
+
+    int x = posX;
+    int y = posY;
+
     std::vector<std::pair<int, int>> moves;
+
+    moves.push_back(std::pair(x + 1, y + 1));
+    moves.push_back(std::pair(x - 1, y + 1));
+
+    moves.push_back(std::pair(x + 1, y - 1));
+    moves.push_back(std::pair(x - 1, y - 1));
+
+    moves.push_back(std::pair(x, y + 1));
+    moves.push_back(std::pair(x, y - 1));
+
+    moves.push_back(std::pair(x + 1, y));
+    moves.push_back(std::pair(x - 1, y));
+
+
+    
     return moves;
 
 }
