@@ -82,7 +82,6 @@ void chessBoard::placeGreenSquares(int greenX, int greenY){
     for(int i = 0; i< 8; i++){
         for(int j = 0; j < 8; j++){
             if((board[i][j].x == greenX*80) && (board[i][j].y == greenY*80)){
-                std::cout << "IM HERE" << endl;
                 create_GreenSquare(board[i][j]);
             }
         }
