@@ -124,6 +124,8 @@ void Window::create_window(){
 
                         if(!(selectedPiece->posX == origPieceX && selectedPiece->posY == origPieceY))
                             game->whiteTurn = !game->whiteTurn;
+
+                        game->checkKingInDanger();
                         selectedPiece = nullptr;
                     }
                 }

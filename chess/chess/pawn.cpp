@@ -30,8 +30,6 @@ std::vector<std::pair<int, int>> pawn::possibleMoves(bool w, Game* game) {
 
     std::vector<std::pair<int, int>> moves;
 
-    std::cout << firstMove << endl;
-
     if(w) {
         for(int i = 0;i < 8;i++) {
             for(int j = 0;j < 8;j++) {
@@ -88,8 +86,6 @@ std::vector<std::pair<int, int>> pawn::possibleMoves(bool w, Game* game) {
             moves.push_back(std::make_pair(x - 1, y + 1));
         }
     }
-
-    std::cout << moves.size() << endl;
     return moves;
 }
 

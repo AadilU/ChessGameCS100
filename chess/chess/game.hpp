@@ -12,6 +12,7 @@ class Game {
         ~Game();
         Piece* getPieceFromPosition(int x, int y);
         Piece* getAttackedPiece(int x, int y);
+        void checkKingInDanger();
 
 };
 #endif
