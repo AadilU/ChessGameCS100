@@ -18,6 +18,7 @@ public:
     ~square();
     void create_BlueSquare(SDL_Rect squar);
     void create_WhiteSquare(SDL_Rect squar);
+    void create_GreenSquare(SDL_Rect squar);
     void clearRender();
     SDL_Window* getWind();
     SDL_Renderer* getRend();
