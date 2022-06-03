@@ -77,3 +77,18 @@ void chessBoard::generateBoard(){
         }
     }
 }
+
+void chessBoard::placeGreenSquares(int greenX, int greenY){
+    for(int i = 0; i< 8; i++){
+        for(int j = 0; j < 8; j++){
+            if((board[i][j].x == greenX*80) && (board[i][j].y == greenY*80)){
+                if((i+j)%2==0){
+                    create_GreenSquare(board[i][j]);
+                }
+                else{
+                    create_OtherGreenSquare(board[i][j]);
+                }
+            }
+        }
+    }
+}
