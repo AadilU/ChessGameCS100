@@ -19,13 +19,6 @@ We also plan to implement a strategy pattern in our chess game so that our algor
 
 ![Strategy Class Diagram Chess Piece](https://user-images.githubusercontent.com/42853025/168699738-8720c244-2dac-4aa8-9eb2-9739971b0c46.png)
 
- > ## Final deliverable
- > All group members will give a demo to the TA/reader during lab time. The TA/reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
  ## Screenshots
  ###### Board Initialization:
  <img width="639" alt="Screen Shot 2022-06-02 at 11 28 41 PM" src="https://user-images.githubusercontent.com/102494188/171799835-12dd123c-b2b6-4f77-a5ec-5d2e776b0dbd.png">
@@ -49,5 +42,4 @@ We also plan to implement a strategy pattern in our chess game so that our algor
  ###### Memory Leak Free!
  <img width="609" alt="image" src="https://user-images.githubusercontent.com/102494188/171803350-1b84e11c-0611-4202-8e9e-1c5a4d5c8a1c.png">
 
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
