@@ -26,8 +26,13 @@ We also plan to implement a strategy pattern in our chess game so that our algor
 ###### Piece Movement with Indicator:
 <img width="639" alt="Screen Shot 2022-06-02 at 11 33 17 PM" src="https://user-images.githubusercontent.com/102494188/171800258-f5c4875d-bfd3-43a4-ae02-45c31e7fc23c.png">
 
+<img width="634" alt="image" src="https://user-images.githubusercontent.com/102494188/171932135-35e76373-f8ee-480b-8cb8-80e25ee3981c.png">
+
 ###### Piece Moved:
 <img width="639" alt="Screen Shot 2022-06-02 at 11 33 23 PM" src="https://user-images.githubusercontent.com/102494188/171800344-71a9f3fe-7678-4b67-8eba-14c2d145ed5a.png">
+
+<img width="634" alt="image" src="https://user-images.githubusercontent.com/102494188/171932199-741d43f1-c5ad-4871-86d6-427da726f47f.png">
+
 
 
  ## Installation/Usage
