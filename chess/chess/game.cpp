@@ -65,7 +65,7 @@ Piece* Game::getAttackedPiece(int x, int y) {
     return nullptr;
 }
 
-void Game::checkKingInDanger() {
+bool Game::checkKingInDanger(Piece* king1) {
     Piece* king = nullptr;
 
     for(int i = 0;i < 8;i++)
@@ -76,23 +76,23 @@ void Game::checkKingInDanger() {
                     king = possiblePiece;
         } 
 
+    if(king1 != nullptr)
+        king = king1;
+
     std::pair<int, int> KingPos = make_pair(king->posX, king->posY);
 
     for(int i = 0;i < 8;i++)
         for(int j = 0;j < 8;j++) {
             Piece* possibleAttacker = pieceList[i][j];
-            if(possibleAttacker != nullptr) {
+            if(possibleAttacker != nullptr && possibleAttacker->name != "king") {
                 std::vector<std::pair<int, int>> attackerMoves;
-                //std::cout << possibleAttacker->name << ":" << endl;
-                //std::cout << possibleAttacker->posX << " " << possibleAttacker->posY << endl << endl;
-                if(possibleAttacker->isWhite() != king->isWhite()) {
-                    attackerMoves = possibleAttacker->possibleMoves(possibleAttacker->isWhite(), this);
-                    if(std::find(attackerMoves.begin(), attackerMoves.end(), KingPos) != attackerMoves.end()) {
-                        std::cout << possibleAttacker->name << endl;
-                    }
+                attackerMoves = possibleAttacker->possibleMoves(possibleAttacker->isWhite(), this, false);
+                if(std::find(attackerMoves.begin(), attackerMoves.end(), KingPos) != attackerMoves.end()) {
+                    return true;
                 }
             }
         } 
+    return false;
 }
 
 //Game::~Game() {

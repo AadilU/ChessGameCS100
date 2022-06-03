@@ -24,7 +24,7 @@ void pawn::movePiece(SDL_Rect newPiece){
     pieceRect.y = (posY*80)+10;
 }
 
-std::vector<std::pair<int, int>> pawn::possibleMoves(bool w, Game* game) {
+std::vector<std::pair<int, int>> pawn::possibleMoves(bool w, Game* game, bool select) {
     int x = posX;
     int y = posY;
 

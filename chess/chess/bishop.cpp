@@ -1,4 +1,3 @@
-
 #include "bishop.hpp"
 #include <iostream>
 #include "game.hpp"
@@ -21,7 +20,7 @@ bishop::bishop(bool w,int pX, int pY){
     pieceRect.h = 60;
 }
 
-std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game) {
+std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game, bool select) {
     int x = posX;
     int y = posY;
 
@@ -51,7 +50,10 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game) {
         x = posX;
 
         for(int i = y;i >= indexOfYUpEnemy;i--) {
-            moves.push_back(std::make_pair(x, i));
+            if(select)
+                push_back_sim(std::make_pair(x, i), moves, game);
+            else
+                moves.push_back(std::make_pair(x, i));
             x++;
         }
 
@@ -81,7 +83,10 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game) {
         x = posX;
 
         for(int i = y;i >= indexOfYUpEnemy;i--) {
-            moves.push_back(std::make_pair(x, i));
+            if(select)
+                push_back_sim(std::make_pair(x, i), moves, game);
+            else
+                moves.push_back(std::make_pair(x, i));
             x--;
         }
 
@@ -111,7 +116,10 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game) {
         x = posX;
 
         for(int i = y;i <= indexOfYDownEnemy;i++) {
-            moves.push_back(std::make_pair(x, i));
+            if(select)
+                push_back_sim(std::make_pair(x, i), moves, game);
+            else
+                moves.push_back(std::make_pair(x, i));
             x++;
         }
 
@@ -141,11 +149,37 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game) {
         x = posX;
 
         for(int i = y;i <= indexOfYDownEnemy;i++) {
-            moves.push_back(std::make_pair(x, i));
+            if(select)
+                push_back_sim(std::make_pair(x, i), moves, game);
+            else
+                moves.push_back(std::make_pair(x, i));
             x--;
         }
 
         x = posX;
 
     return moves;
+}
+
+void bishop::push_back_sim(std::pair<int, int> p, std::vector<std::pair<int, int>> &moves, Game* game) {
+    int x = posX;
+    int y = posY;
+
+    posX = p.first;
+    posY = p.second;
+
+    if(game->getAttackedPiece(posX, posY) != nullptr && (game->getAttackedPiece(posX, posY)->isWhite() != this->isWhite())) {
+        moves.push_back(std::make_pair(posX, posY));
+        posX = x;
+        posY = y;
+        return;
+    }
+
+    if(!game->checkKingInDanger(nullptr))
+        moves.push_back(std::make_pair(posX, posY));
+    
+    posX = x;
+    posY = y;
+
+    return;
 }
