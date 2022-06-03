@@ -1,4 +1,3 @@
-
 #include "bishop.hpp"
 #include <iostream>
 #include "game.hpp"
@@ -96,7 +95,7 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game, bool 
         int indexOfYDownEnemy = 7;
         bool YDownPieceFound = false;
         for(int i = y + 1;i <= 7;i++) {
-            if(!YDownPieceFound)
+            if(!YDownPieceFound) {
                 x++;
                 if(x == 7) {
                     YDownPieceFound = true;
@@ -111,6 +110,7 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game, bool 
                     else
                         indexOfYDownEnemy = i;
                 }
+            }
         }
 
         x = posX;
@@ -128,7 +128,7 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game, bool 
         indexOfYDownEnemy = 7;
         YDownPieceFound = false;
         for(int i = y + 1;i <= 7;i++) {
-            if(!YDownPieceFound)
+            if(!YDownPieceFound) {
                 x--;
                 if(x == 0) {
                     YDownPieceFound = true;
@@ -143,6 +143,7 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game, bool 
                     else
                         indexOfYDownEnemy = i;
                 }
+            }
         }
 
         x = posX;
@@ -161,17 +162,24 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game, bool 
 }
 
 void bishop::push_back_sim(std::pair<int, int> p, std::vector<std::pair<int, int>> &moves, Game* game) {
-    int xBack = posX;
-    int yBack = posY;
+    int x = posX;
+    int y = posY;
 
     posX = p.first;
     posY = p.second;
 
-    if(!(game->checkKingInDanger()))
-        moves.push_back(p);
+    if(game->getAttackedPiece(posX, posY) != nullptr && (game->getAttackedPiece(posX, posY)->isWhite() != this->isWhite())) {
+        moves.push_back(std::make_pair(posX, posY));
+        posX = x;
+        posY = y;
+        return;
+    }
 
-    posX = xBack;
-    posY = yBack;
+    if(!game->checkKingInDanger(nullptr))
+        moves.push_back(std::make_pair(posX, posY));
+    
+    posX = x;
+    posY = y;
 
     return;
 }

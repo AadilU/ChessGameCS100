@@ -12,7 +12,7 @@ class Game {
         ~Game();
         Piece* getPieceFromPosition(int x, int y);
         Piece* getAttackedPiece(int x, int y);
-        bool checkKingInDanger();
+        bool checkKingInDanger(Piece* king1);
 
 };
 #endif

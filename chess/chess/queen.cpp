@@ -150,7 +150,7 @@ std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game, bool s
         indexOfYUpEnemy = 0;
         YUpPieceFound = false;
         for(int i = y - 1;i >= 0;i--) {
-            if(!YUpPieceFound)
+            if(!YUpPieceFound) {
                 if(game->getAttackedPiece(x, i) != nullptr) {
                     YUpPieceFound = true;
                     if(game->getAttackedPiece(x, i)->isWhite() == w)
@@ -158,6 +158,7 @@ std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game, bool s
                     else
                         indexOfYUpEnemy = i;
                 }
+            }
         }
 
         for(int i = y;i >= indexOfYUpEnemy;i--) {
@@ -167,7 +168,7 @@ std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game, bool s
         indexOfYDownEnemy = 7;
         YDownPieceFound = false;
         for(int i = y + 1;i <= 7;i++) {
-            if(!YDownPieceFound)
+            if(!YDownPieceFound) {
                 if(game->getAttackedPiece(x, i) != nullptr) {
                     YDownPieceFound = true;
                     if(game->getAttackedPiece(x, i)->isWhite() == w)
@@ -175,6 +176,7 @@ std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game, bool s
                     else
                         indexOfYDownEnemy = i;
                 }
+            }
         }
 
         for(int i = y;i <= indexOfYDownEnemy;i++) {
@@ -184,7 +186,7 @@ std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game, bool s
         int indexOfXLeftEnemy = 0;
         bool XLeftPieceFound = false;
         for(int i = x - 1;i >= 0;i--) {
-            if(!XLeftPieceFound)
+            if(!XLeftPieceFound) {
                 if(game->getAttackedPiece(i, y) != nullptr) {
                     XLeftPieceFound = true;
                     if(game->getAttackedPiece(i, y)->isWhite() == w)
@@ -192,6 +194,7 @@ std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game, bool s
                     else
                         indexOfXLeftEnemy = i;
                 }
+            }
         }
 
         for(int i = x;i >= indexOfXLeftEnemy;i--) {
@@ -201,7 +204,7 @@ std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game, bool s
         int indexOfXRightEnemy = 7;
         bool XRightPieceFound = false;
         for(int i = x + 1;i <= 7;i++) {
-            if(!XRightPieceFound)
+            if(!XRightPieceFound) {
                 if(game->getAttackedPiece(i, y) != nullptr) {
                     XRightPieceFound = true;
                     if(game->getAttackedPiece(i, y)->isWhite() == w)
@@ -209,6 +212,7 @@ std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game, bool s
                     else
                         indexOfXRightEnemy = i;
                 }
+            }
         }
 
         for(int i = x;i <= indexOfXRightEnemy;i++) {
