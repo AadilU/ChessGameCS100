@@ -45,7 +45,9 @@ We also plan to implement a strategy pattern in our chess game so that our algor
  3) Go to our repository's "code" drop down menu and download the zip file, from there you simply upload the files to your IDE/Compiler.
 
  ## Testing
- We tested our code for memory leaks through Xcodes helpful "instrument" application since we were unable to access valgrind. ![Memory Leak Free]<img width="609" alt="image" src="https://user-images.githubusercontent.com/102494188/171803350-1b84e11c-0611-4202-8e9e-1c5a4d5c8a1c.png">
+ We tested our code for memory leaks through Xcodes helpful "instrument" application since we were unable to access valgrind. 
+ ## Memory Leak Free!
+ <img width="609" alt="image" src="https://user-images.githubusercontent.com/102494188/171803350-1b84e11c-0611-4202-8e9e-1c5a4d5c8a1c.png">
 
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
