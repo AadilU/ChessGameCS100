@@ -48,6 +48,15 @@ void square::create_GreenSquare(SDL_Rect squar){
     SDL_RenderFillRect(render,&squar);
 }
 
+void square::create_OtherGreenSquare(SDL_Rect squar){
+    squar.w = width;
+    squar.h = height;
+    
+    SDL_SetRenderDrawColor(render,152,251,152,SDL_ALPHA_OPAQUE);
+    SDL_RenderDrawRect(render,&squar);
+    SDL_RenderFillRect(render,&squar);
+}
+
 SDL_Window* square::getWind(){
     return this->window;
 }
