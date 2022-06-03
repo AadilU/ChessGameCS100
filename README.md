@@ -34,7 +34,7 @@ We also plan to implement a strategy pattern in our chess game so that our algor
  In order to install our version of chess, you will need to:
  1) Download [SDL2](https://www.libsdl.org/download-2.0.php) for your operating system(Mac,Windows, or Linux)
  2) Follow this [guide](https://lazyfoo.net/tutorials/SDL/01_hello_SDL/index.php) on how to set it up on your machine
-  -Note: if you are using windows or linux you will have alot of IDE's/Compilers to choose from. Pick the one you prefer the most. Mac users will have to download and install Xcode through the app store.
+ ###### Note: if you are using windows or linux you will have alot of IDE's/Compilers to choose from. Pick the one you prefer the most. Mac users will have to download and install Xcode through the app store.
  3) Go to our repository's "code" drop down menu and download the zip file, from there you simply upload the files to your IDE/Compiler.
 
  ## Testing
