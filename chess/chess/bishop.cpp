@@ -21,7 +21,7 @@ bishop::bishop(bool w,int pX, int pY){
     pieceRect.h = 60;
 }
 
-std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game) {
+std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game, bool select) {
     int x = posX;
     int y = posY;
 
@@ -51,7 +51,10 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game) {
         x = posX;
 
         for(int i = y;i >= indexOfYUpEnemy;i--) {
-            moves.push_back(std::make_pair(x, i));
+            if(select)
+                push_back_sim(std::make_pair(x, i), moves, game);
+            else
+                moves.push_back(std::make_pair(x, i));
             x++;
         }
 
@@ -81,7 +84,10 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game) {
         x = posX;
 
         for(int i = y;i >= indexOfYUpEnemy;i--) {
-            moves.push_back(std::make_pair(x, i));
+            if(select)
+                push_back_sim(std::make_pair(x, i), moves, game);
+            else
+                moves.push_back(std::make_pair(x, i));
             x--;
         }
 
@@ -90,7 +96,7 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game) {
         int indexOfYDownEnemy = 7;
         bool YDownPieceFound = false;
         for(int i = y + 1;i <= 7;i++) {
-            if(!YDownPieceFound) {
+            if(!YDownPieceFound)
                 x++;
                 if(x == 7) {
                     YDownPieceFound = true;
@@ -105,13 +111,15 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game) {
                     else
                         indexOfYDownEnemy = i;
                 }
-            }
         }
 
         x = posX;
 
         for(int i = y;i <= indexOfYDownEnemy;i++) {
-            moves.push_back(std::make_pair(x, i));
+            if(select)
+                push_back_sim(std::make_pair(x, i), moves, game);
+            else
+                moves.push_back(std::make_pair(x, i));
             x++;
         }
 
@@ -120,7 +128,7 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game) {
         indexOfYDownEnemy = 7;
         YDownPieceFound = false;
         for(int i = y + 1;i <= 7;i++) {
-            if(!YDownPieceFound) {
+            if(!YDownPieceFound)
                 x--;
                 if(x == 0) {
                     YDownPieceFound = true;
@@ -135,17 +143,35 @@ std::vector<std::pair<int, int>> bishop::possibleMoves(bool w, Game* game) {
                     else
                         indexOfYDownEnemy = i;
                 }
-            }
         }
 
         x = posX;
 
         for(int i = y;i <= indexOfYDownEnemy;i++) {
-            moves.push_back(std::make_pair(x, i));
+            if(select)
+                push_back_sim(std::make_pair(x, i), moves, game);
+            else
+                moves.push_back(std::make_pair(x, i));
             x--;
         }
 
         x = posX;
 
     return moves;
+}
+
+void bishop::push_back_sim(std::pair<int, int> p, std::vector<std::pair<int, int>> &moves, Game* game) {
+    int xBack = posX;
+    int yBack = posY;
+
+    posX = p.first;
+    posY = p.second;
+
+    if(!(game->checkKingInDanger()))
+        moves.push_back(p);
+
+    posX = xBack;
+    posY = yBack;
+
+    return;
 }

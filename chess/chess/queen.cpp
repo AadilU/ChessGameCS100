@@ -21,7 +21,7 @@ queen::queen(bool w,int pX, int pY){
     pieceRect.h = 60;
 }
 
-std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game) {
+std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game, bool select) {
     int x = posX;
     int y = posY;
 

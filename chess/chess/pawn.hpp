@@ -15,7 +15,7 @@
 class pawn : public Piece {
 public:
     pawn(bool isWhite, int pX, int pY);
-    std::vector<std::pair<int, int>> possibleMoves(bool w, Game* game);
+    std::vector<std::pair<int, int>> possibleMoves(bool w, Game* game, bool select);
     void movePiece(SDL_Rect rendPiece);
 };
 

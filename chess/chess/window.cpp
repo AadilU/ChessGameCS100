@@ -88,7 +88,7 @@ void Window::create_window(){
                 selectedPiece = game->getPieceFromPosition(checkX, checkY);
                 //possibleMovesList.clear();
                 if(selectedPiece != nullptr)
-                    possibleMovesList = selectedPiece->possibleMoves(selectedPiece->isWhite(), game);
+                    possibleMovesList = selectedPiece->possibleMoves(selectedPiece->isWhite(), game, true);
                 }
                 
                 if(selectedPiece != nullptr && pieceSelected) {
@@ -127,7 +127,7 @@ void Window::create_window(){
                         if(!(selectedPiece->posX == origPieceX && selectedPiece->posY == origPieceY))
                             game->whiteTurn = !game->whiteTurn;
 
-                        game->checkKingInDanger();
+                        //std::cout << game->checkKingInDanger();
                         selectedPiece = nullptr;
                     }
                 }

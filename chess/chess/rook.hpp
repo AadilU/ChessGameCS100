@@ -15,7 +15,7 @@
 class rook : public Piece{
 public:
     rook(bool isWhite,int pX, int pY);
-    std::vector<std::pair<int, int>> possibleMoves(bool w, Game* game);
+    std::vector<std::pair<int, int>> possibleMoves(bool w, Game* game, bool select);
 };
 
 #endif /* pawn_hpp */
