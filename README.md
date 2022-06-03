@@ -46,5 +46,9 @@ We also plan to implement a strategy pattern in our chess game so that our algor
  We tested our code for memory leaks through Xcodes helpful "instrument" application since we were unable to access valgrind. 
  ###### Memory Leak Free!
  <img width="609" alt="image" src="https://user-images.githubusercontent.com/102494188/171803350-1b84e11c-0611-4202-8e9e-1c5a4d5c8a1c.png">
+ 
+ ##### Unit Testing
+ We tested the creation of our objects using google test, but since the movement logic was too complicated for google test, we tested the actions manually.
+ <img width="612" alt="Screen Shot 2022-06-03 at 3 25 52 PM" src="https://user-images.githubusercontent.com/76264953/171962238-533068c8-645b-42c5-81ba-e31694bd3018.png">
 
  
