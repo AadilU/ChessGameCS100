@@ -90,7 +90,7 @@ std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game) {
         int indexOfYDownEnemy = 7;
         bool YDownPieceFound = false;
         for(int i = y + 1;i <= 7;i++) {
-            if(!YDownPieceFound)
+            if(!YDownPieceFound) {
                 x++;
                 if(x == 7) {
                     YDownPieceFound = true;
@@ -105,6 +105,7 @@ std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game) {
                     else
                         indexOfYDownEnemy = i;
                 }
+            }
         }
 
         x = posX;
@@ -119,7 +120,7 @@ std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game) {
         indexOfYDownEnemy = 7;
         YDownPieceFound = false;
         for(int i = y + 1;i <= 7;i++) {
-            if(!YDownPieceFound)
+            if(!YDownPieceFound) {
                 x--;
                 if(x == 0) {
                     YDownPieceFound = true;
@@ -134,6 +135,7 @@ std::vector<std::pair<int, int>> queen::possibleMoves(bool w, Game* game) {
                     else
                         indexOfYDownEnemy = i;
                 }
+            }
         }
 
         x = posX;
