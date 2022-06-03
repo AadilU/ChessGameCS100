@@ -27,7 +27,17 @@ We also plan to implement a strategy pattern in our chess game so that our algor
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
+ Board Initialization:
  <img width="639" alt="Screen Shot 2022-06-02 at 11 28 41 PM" src="https://user-images.githubusercontent.com/102494188/171799835-12dd123c-b2b6-4f77-a5ec-5d2e776b0dbd.png">
+
+Piece Movement with Indicator:
+<img width="639" alt="Screen Shot 2022-06-02 at 11 33 17 PM" src="https://user-images.githubusercontent.com/102494188/171800258-f5c4875d-bfd3-43a4-ae02-45c31e7fc23c.png">
+
+Piece Moved:
+<img width="639" alt="Screen Shot 2022-06-02 at 11 33 23 PM" src="https://user-images.githubusercontent.com/102494188/171800344-71a9f3fe-7678-4b67-8eba-14c2d145ed5a.png">
+
+
+
 
  
 
