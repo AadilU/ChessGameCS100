@@ -28,20 +28,38 @@ std::vector<std::pair<int, int>> king::possibleMoves(bool w, Game* game) {
 
     std::vector<std::pair<int, int>> moves;
 
-    moves.push_back(std::pair(x + 1, y + 1));
-    moves.push_back(std::pair(x - 1, y + 1));
+    if(game->getAttackedPiece(x + 1, y + 1) == nullptr || 
+    (game->getAttackedPiece(x + 1, y + 1) == nullptr && game->getAttackedPiece(x + 1, y + 1)->isWhite() != this->isWhite()))
+        moves.push_back(std::pair(x + 1, y + 1));
 
-    moves.push_back(std::pair(x + 1, y - 1));
-    moves.push_back(std::pair(x - 1, y - 1));
+    if(game->getAttackedPiece(x - 1, y + 1) == nullptr || 
+    (game->getAttackedPiece(x - 1, y + 1) != nullptr && game->getAttackedPiece(x - 1, y + 1)->isWhite() != this->isWhite()))
+        moves.push_back(std::pair(x - 1, y + 1));
 
-    moves.push_back(std::pair(x, y + 1));
-    moves.push_back(std::pair(x, y - 1));
+    if(game->getAttackedPiece(x + 1, y - 1) == nullptr || 
+    (game->getAttackedPiece(x + 1, y - 1) != nullptr && game->getAttackedPiece(x + 1, y - 1)->isWhite() != this->isWhite()))
+        moves.push_back(std::pair(x + 1, y - 1));
 
-    moves.push_back(std::pair(x + 1, y));
-    moves.push_back(std::pair(x - 1, y));
+    if(game->getAttackedPiece(x - 1, y - 1) == nullptr || 
+    (game->getAttackedPiece(x - 1, y - 1) != nullptr && game->getAttackedPiece(x - 1, y - 1)->isWhite() != this->isWhite()))
+        moves.push_back(std::pair(x - 1, y - 1));
 
-
+    if(game->getAttackedPiece(x, y + 1) == nullptr || 
+    (game->getAttackedPiece(x, y + 1) != nullptr && game->getAttackedPiece(x, y + 1)->isWhite() != this->isWhite()))
+        moves.push_back(std::pair(x, y + 1));
     
+    if(game->getAttackedPiece(x, y - 1) == nullptr || 
+    (game->getAttackedPiece(x, y - 1) != nullptr && game->getAttackedPiece(x, y - 1)->isWhite() != this->isWhite()))
+        moves.push_back(std::pair(x, y - 1));
+
+    if(game->getAttackedPiece(x + 1, y) == nullptr || 
+    (game->getAttackedPiece(x + 1, y) != nullptr && game->getAttackedPiece(x + 1, y)->isWhite() != this->isWhite()))
+        moves.push_back(std::pair(x + 1, y));
+
+    if(game->getAttackedPiece(x - 1, y) == nullptr || 
+    (game->getAttackedPiece(x - 1, y) != nullptr && game->getAttackedPiece(x - 1, y)->isWhite() != this->isWhite()))
+        moves.push_back(std::pair(x - 1, y));
+
     return moves;
 
 }
