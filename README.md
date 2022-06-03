@@ -37,13 +37,15 @@ We also plan to implement a strategy pattern in our chess game so that our algor
 <img width="639" alt="Screen Shot 2022-06-02 at 11 33 23 PM" src="https://user-images.githubusercontent.com/102494188/171800344-71a9f3fe-7678-4b67-8eba-14c2d145ed5a.png">
 
 
-
-
- 
-
- > Screenshots of the input/output after running your application
  ## Installation/Usage
- > Instructions on installing and running your application
+ In order to install our version of chess, you will need to:
+ 1) Download [SDL2](https://www.libsdl.org/download-2.0.php) for your operating system(Mac,Windows, or Linux)
+ 2) Follow this [guide](https://lazyfoo.net/tutorials/SDL/01_hello_SDL/index.php) on how to set it up on your machine
+  -Note: if you are using windows or linux you will have alot of IDE's/Compilers to choose from. Pick the one you prefer the most. Mac users will have to download and install Xcode through the app store.
+ 3) Go to our repository's "code" drop down menu and download the zip file, from there you simply upload the files to your IDE/Compiler.
+
  ## Testing
+ We tested our code for memory leaks through Xcodes helpful "instrument" application since we were unable to access valgrind. ![Memory Leak Free]<img width="609" alt="image" src="https://user-images.githubusercontent.com/102494188/171803350-1b84e11c-0611-4202-8e9e-1c5a4d5c8a1c.png">
+
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
