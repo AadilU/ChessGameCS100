@@ -4,12 +4,18 @@
 #include <SDL2/SDL.h>
 #include <string>
 
+#include <vector>
+#include <iostream>
+
+class Game;
+
 class Piece{
 protected:
     bool white;
     bool alive;
     
 public:
+    bool firstMove = true;
     int posX;
     int posY;
     SDL_Rect pieceRect;
@@ -27,11 +33,18 @@ public:
     bool isWhite() {
         return white;
     }
-    //virtual bool canMove(square* moveSquare) = 0;
+
+    virtual ~Piece() = default;
+
+
+    virtual std::vector<std::pair<int, int>> possibleMoves(bool w, Game* game) = 0;
     
     void movePiece(SDL_Rect newPiece) {
     pieceRect.x = (posX*80)+10;
     pieceRect.y = (posY*80)+10;
+
+    this->firstMove = false;
+
     }
 
 };

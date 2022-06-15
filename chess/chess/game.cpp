@@ -63,3 +63,31 @@ Piece* Game::getAttackedPiece(int x, int y) {
     }
     return nullptr;
 }
+
+//Game::~Game() {
+//    for(int i = 0;i < 8;i++) {
+//        delete pieceList[i][1];
+//        delete pieceList[i][8];
+//    }
+//
+//    delete pieceList[0][0];
+//    delete pieceList[7][0];
+//    delete pieceList[0][7];
+//    delete pieceList[7][7];
+//
+//    delete pieceList[1][0];
+//    delete pieceList[6][0];
+//    delete pieceList[1][7];
+//    delete pieceList[6][7];
+//
+//    delete pieceList[2][0];
+//    delete pieceList[5][0];
+//    delete pieceList[2][7];
+//    delete pieceList[5][7];
+//
+//    delete pieceList[3][0];
+//    delete pieceList[3][7];
+//
+//    delete pieceList[4][0];
+//    delete pieceList[4][7];
+//}

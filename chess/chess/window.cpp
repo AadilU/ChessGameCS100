@@ -2,10 +2,10 @@
 #include "piece.hpp"
 #include "pawn.hpp"
 #include "knight.hpp"
-#include "vector"
 #include "game.hpp"
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 void Window::create_window(){
     SDL_Window* wind = getWind();
@@ -15,6 +15,8 @@ void Window::create_window(){
     bool pieceSelected = false;
     int origPieceX = -1;
     int origPieceY = -1;
+
+    std::vector<std::pair<int, int>> possibleMovesList;
     
     //error check
     if(SDL_Init(SDL_INIT_VIDEO) < 0){
@@ -68,10 +70,13 @@ void Window::create_window(){
     Piece* selectedPiece = nullptr;
     while(gameIsRunning){
         SDL_Event event;
+        clearRender();
+        generateBoard();
         while(SDL_PollEvent(&event)){
             if(event.type == SDL_QUIT){
                 gameIsRunning = false;
                 std::cout << "game quit" << std::endl;
+                //delete game;
             }
             if(event.type == SDL_MOUSEBUTTONDOWN){
                 if(!pieceSelected) {
@@ -81,6 +86,9 @@ void Window::create_window(){
                 checkX = (checkX-10)/80;
                 checkY = (checkY-10)/80;
                 selectedPiece = game->getPieceFromPosition(checkX, checkY);
+                //possibleMovesList.clear();
+                if(selectedPiece != nullptr)
+                    possibleMovesList = selectedPiece->possibleMoves(selectedPiece->isWhite(), game);
                 }
                 
                 if(selectedPiece != nullptr && pieceSelected) {
@@ -88,6 +96,14 @@ void Window::create_window(){
                     int checkY = 0;
                     SDL_GetMouseState(&checkX, &checkY);
                     Piece* attackedPiece = game->getAttackedPiece((checkX-10)/80, (checkY-10)/80);
+
+                    std::pair<int, int> move = std::make_pair((checkX-10)/80, (checkY-10)/80);
+
+                    if(std::find(possibleMovesList.begin(), possibleMovesList.end(), move) == possibleMovesList.end()) {
+                        attackedPiece = nullptr;
+                        selectedPiece = nullptr;
+                    }
+
                     if(attackedPiece != nullptr) {
                         if(attackedPiece->isWhite() != game->whiteTurn) {
                             attackedPiece->posX = -10;
@@ -105,6 +121,9 @@ void Window::create_window(){
                         selectedPiece->posX = ((checkX)-10)/80;
                         selectedPiece->posY = ((checkY)-10)/80;
                         selectedPiece->movePiece(selectedPiece->pieceRect);
+
+                        selectedPiece->firstMove = false;
+
                         if(!(selectedPiece->posX == origPieceX && selectedPiece->posY == origPieceY))
                             game->whiteTurn = !game->whiteTurn;
                         selectedPiece = nullptr;
@@ -122,12 +141,22 @@ void Window::create_window(){
                     pieceSelected = false;
                     origPieceX = -1;
                     origPieceY = -1;
+                    possibleMovesList.clear();
                 }
             }
         }
-
-        clearRender();
-        generateBoard();
+        
+        int projectX = 0;
+        int projectY = 0;
+        for(int i = 0; i < possibleMovesList.size();i++){
+            projectX = possibleMovesList.at(i).first;
+            projectY = possibleMovesList.at(i).second;
+            //std::cout << "IM HERE also" << endl;
+            placeGreenSquares(projectX, projectY);
+        }
+        
+//        clearRender();
+//        generateBoard();
 
         vector<SDL_Texture*> textureList;
         

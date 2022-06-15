@@ -1,6 +1,7 @@
 
 #include "knight.hpp"
 #include <iostream>
+#include "game.hpp"
 
 knight::knight(bool w,int pX, int pY){
     name = "knight";
@@ -18,4 +19,25 @@ knight::knight(bool w,int pX, int pY){
     pieceRect.y = (posY*80)+10;
     pieceRect.w = 60;
     pieceRect.h = 60;
+}
+
+std::vector<std::pair<int, int>> knight::possibleMoves(bool w, Game* game) {
+    int x = posX;
+    int y = posY;
+
+    std::vector<std::pair<int, int>> moves;
+
+    moves.push_back(std::pair(x + 1, y + 2));
+    moves.push_back(std::pair(x - 1, y + 2));
+
+    moves.push_back(std::pair(x + 1, y - 2));
+    moves.push_back(std::pair(x - 1, y - 2));
+
+    moves.push_back(std::pair(x + 2, y + 1));
+    moves.push_back(std::pair(x - 2, y + 1));
+
+    moves.push_back(std::pair(x + 2, y - 1));
+    moves.push_back(std::pair(x - 2, y - 1));
+    
+    return moves;
 }

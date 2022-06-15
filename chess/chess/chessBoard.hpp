@@ -15,7 +15,7 @@ private:
 public:
     chessBoard();
     void generateBoard();
-    
+    void placeGreenSquares(int greenX,int greenY);
 };
 
 #endif /* chessBoard_hpp */
