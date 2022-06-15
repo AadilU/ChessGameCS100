@@ -11,6 +11,8 @@ void Window::create_window(){
     SDL_Window* wind = getWind();
     
     bool gameIsRunning = true;
+
+    bool gameEnded = false;
     
     bool pieceSelected = false;
     int origPieceX = -1;
@@ -87,7 +89,8 @@ void Window::create_window(){
                 SDL_GetMouseState(&checkX,&checkY);
                 checkX = (checkX-10)/80;
                 checkY = (checkY-10)/80;
-                selectedPiece = game->getPieceFromPosition(checkX, checkY);
+                if(!gameEnded)
+                    selectedPiece = game->getPieceFromPosition(checkX, checkY);
                 //possibleMovesList.clear();
                 if(selectedPiece != nullptr)
                     possibleMovesList = selectedPiece->possibleMoves(selectedPiece->isWhite(), game, true);
@@ -142,9 +145,14 @@ void Window::create_window(){
                                             king = possiblePiece;
                                 } 
                             if(king != nullptr) {
-                                if(king->possibleMoves(king->isWhite(), game, true).empty())
+                                if(king->possibleMoves(king->isWhite(), game, true).empty()) {
                                     std::cout << "Check Mate" << endl;
-                                    gameIsRunning = false;
+                                    if(game->whiteTurn)
+                                        std::cout << "Black wins" << endl;
+                                    else
+                                        std::cout << "White wins" << endl;
+                                    gameEnded = true;
+                                }
                             }
                         }
 
