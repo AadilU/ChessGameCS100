@@ -24,13 +24,11 @@ void pawn::movePiece(SDL_Rect newPiece){
     pieceRect.y = (posY*80)+10;
 }
 
-std::vector<std::pair<int, int>> pawn::possibleMoves(bool w, Game* game) {
+std::vector<std::pair<int, int>> pawn::possibleMoves(bool w, Game* game, bool select) {
     int x = posX;
     int y = posY;
 
     std::vector<std::pair<int, int>> moves;
-
-    std::cout << firstMove << endl;
 
     if(w) {
         for(int i = 0;i < 8;i++) {
@@ -53,10 +51,10 @@ std::vector<std::pair<int, int>> pawn::possibleMoves(bool w, Game* game) {
                 }
             }
         }
-        if(game->getAttackedPiece(x + 1, y - 1) != nullptr) {
+        if(game->getAttackedPiece(x + 1, y - 1) != nullptr && (game->getAttackedPiece(x + 1, y - 1)->isWhite() != this->isWhite())) {
             moves.push_back(std::make_pair(x + 1, y - 1));
         }
-        if(game->getAttackedPiece(x - 1, y - 1) != nullptr) {
+        if(game->getAttackedPiece(x - 1, y - 1) != nullptr && (game->getAttackedPiece(x - 1, y - 1)->isWhite() != this->isWhite())) {
             moves.push_back(std::make_pair(x - 1, y - 1));
         }
     }
@@ -81,15 +79,13 @@ std::vector<std::pair<int, int>> pawn::possibleMoves(bool w, Game* game) {
                 }
             }
         }
-        if(game->getAttackedPiece(x + 1, y + 1) != nullptr) {
+        if(game->getAttackedPiece(x + 1, y + 1) != nullptr && (game->getAttackedPiece(x + 1, y + 1)->isWhite() != this->isWhite())) {
             moves.push_back(std::make_pair(x + 1, y + 1));
         }
-        if(game->getAttackedPiece(x - 1, y + 1) != nullptr) {
+        if(game->getAttackedPiece(x - 1, y + 1) != nullptr && (game->getAttackedPiece(x - 1, y + 1)->isWhite() != this->isWhite())) {
             moves.push_back(std::make_pair(x - 1, y + 1));
         }
     }
-
-    std::cout << moves.size() << endl;
     return moves;
 }
 

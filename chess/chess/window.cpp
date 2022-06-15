@@ -16,6 +16,8 @@ void Window::create_window(){
     int origPieceX = -1;
     int origPieceY = -1;
 
+    bool check = false;
+
     std::vector<std::pair<int, int>> possibleMovesList;
     
     //error check
@@ -88,7 +90,7 @@ void Window::create_window(){
                 selectedPiece = game->getPieceFromPosition(checkX, checkY);
                 //possibleMovesList.clear();
                 if(selectedPiece != nullptr)
-                    possibleMovesList = selectedPiece->possibleMoves(selectedPiece->isWhite(), game);
+                    possibleMovesList = selectedPiece->possibleMoves(selectedPiece->isWhite(), game, true);
                 }
                 
                 if(selectedPiece != nullptr && pieceSelected) {
@@ -126,6 +128,26 @@ void Window::create_window(){
 
                         if(!(selectedPiece->posX == origPieceX && selectedPiece->posY == origPieceY))
                             game->whiteTurn = !game->whiteTurn;
+
+                        check = game->checkKingInDanger(nullptr);
+
+                        if(check) {
+                            std::cout << "Check" << endl;
+                            Piece* king = nullptr;
+                            for(int i = 0;i < 8;i++)
+                                for(int j = 0;j < 8;j++) {
+                                    Piece* possiblePiece = game->getAttackedPiece(i, j);
+                                    if(possiblePiece != nullptr)
+                                        if(possiblePiece->name == "king" && possiblePiece->isWhite() == game->whiteTurn)
+                                            king = possiblePiece;
+                                } 
+                            if(king != nullptr) {
+                                if(king->possibleMoves(king->isWhite(), game, true).empty())
+                                    std::cout << "Check Mate" << endl;
+                                    gameIsRunning = false;
+                            }
+                        }
+
                         selectedPiece = nullptr;
                     }
                 }

@@ -37,7 +37,7 @@ public:
     virtual ~Piece() = default;
 
 
-    virtual std::vector<std::pair<int, int>> possibleMoves(bool w, Game* game) = 0;
+    virtual std::vector<std::pair<int, int>> possibleMoves(bool w, Game* game, bool select) = 0;
     
     void movePiece(SDL_Rect newPiece) {
     pieceRect.x = (posX*80)+10;

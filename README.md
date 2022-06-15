@@ -19,17 +19,27 @@ We also plan to implement a strategy pattern in our chess game so that our algor
 
 ![Strategy Class Diagram Chess Piece](https://user-images.githubusercontent.com/42853025/168699738-8720c244-2dac-4aa8-9eb2-9739971b0c46.png)
 
- > ## Final deliverable
- > All group members will give a demo to the TA/reader during lab time. The TA/reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
  ## Screenshots
- > Screenshots of the input/output after running your application
+ ###### Board Initialization:
+ <img width="639" alt="Screen Shot 2022-06-02 at 11 28 41 PM" src="https://user-images.githubusercontent.com/102494188/171799835-12dd123c-b2b6-4f77-a5ec-5d2e776b0dbd.png">
+
+###### Piece Movement with Indicator:
+<img width="639" alt="Screen Shot 2022-06-02 at 11 33 17 PM" src="https://user-images.githubusercontent.com/102494188/171800258-f5c4875d-bfd3-43a4-ae02-45c31e7fc23c.png">
+
+###### Piece Moved:
+<img width="639" alt="Screen Shot 2022-06-02 at 11 33 23 PM" src="https://user-images.githubusercontent.com/102494188/171800344-71a9f3fe-7678-4b67-8eba-14c2d145ed5a.png">
+
+
  ## Installation/Usage
- > Instructions on installing and running your application
+ In order to install our version of chess, you will need to:
+ 1) Download [SDL2](https://www.libsdl.org/download-2.0.php) for your operating system(Mac,Windows, or Linux)
+ 2) Follow this [guide](https://lazyfoo.net/tutorials/SDL/01_hello_SDL/index.php) on how to set it up on your machine
+ ###### Note: if you are using windows or linux you will have alot of IDE's/Compilers to choose from. Pick the one you prefer the most. Mac users will have to download and install Xcode through the app store.
+ 3) Go to our repository's "code" drop down menu and download the zip file, from there you simply upload the files to your IDE/Compiler.
+
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ We tested our code for memory leaks through Xcodes helpful "instrument" application since we were unable to access valgrind. 
+ ###### Memory Leak Free!
+ <img width="609" alt="image" src="https://user-images.githubusercontent.com/102494188/171803350-1b84e11c-0611-4202-8e9e-1c5a4d5c8a1c.png">
+
  
